@@ -1,0 +1,26 @@
+<script type="text/javascript">
+function showpass(id) {
+    var y=document.getElementById(id);
+    y.style.display = 'block';
+}
+</script>
+<table class="table table-striped" border="1">
+    <thead><tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Show pwd</th>
+        <th>Send username by e-mail</th>
+    </tr></thead>
+    <tbody>
+    {% for row in table %}
+    <tr>
+        <td>{{ row.name }}</td>
+        <td>{{ row.username }}</td>
+        <td><div id="{{ row.username }}" style="display:none;">{{ row.password }}</div></td>
+        <td><button onclick="showpass('{{ row.username }}')" id="showpass">Show password</button></td>
+        <td>{{ row.link }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
